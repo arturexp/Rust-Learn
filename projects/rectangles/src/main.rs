@@ -17,6 +17,7 @@ fn main() {
         width: 60,
         height: 45,
     };
+    let rect4 = Rectangle::square(50);
 
     println!(
         "The area of the rectangle is {} square pixels.",
@@ -26,6 +27,8 @@ fn main() {
     println!("Can react1 hold rect3? {}", rect1.can_hold(&rect3));
 
     println!("rect1 is {:#?}", rect1);
+
+    println!("rect4 is square rectangle with size {}", rect4.width);
 }
 
 impl Rectangle {
@@ -35,5 +38,15 @@ impl Rectangle {
 
     fn can_hold(&self, other: &Rectangle) -> bool {
         self.width > other.width && self.height > other.height
+    }
+    // Ассоциированная функция - конструктор для возврата
+    // нового экземляра структуры.
+    // Вызываются ::
+    // Возвращает квадрат
+    fn square(size: u32) -> Self {
+        Self {
+            width: size,
+            height: size,
+        }
     }
 }
